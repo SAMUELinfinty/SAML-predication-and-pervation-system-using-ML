@@ -10,7 +10,12 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from scipy.stats import rankdata
-import shap
+try:
+    import shap
+    HAS_SHAP = True
+except ImportError:
+    shap = None
+    HAS_SHAP = False
 
 app = FastAPI(
     title="Explainable AML Fraud Detection & Risk Management API",
@@ -30,18 +35,27 @@ app.add_middleware(
 bundle = None
 explainer = None
 
-@app.on_event("startup")
 def load_artifacts():
     global bundle, explainer
     model_path = os.path.join(os.path.dirname(__file__), "../../models/ensemble.joblib")
     if os.path.exists(model_path):
         bundle = joblib.load(model_path)
-        try:
-            explainer = shap.TreeExplainer(bundle["models"]["lightgbm"])
-        except Exception:
+        if HAS_SHAP and shap is not None:
+            try:
+                explainer = shap.TreeExplainer(bundle["models"]["lightgbm"])
+            except Exception:
+                explainer = None
+        else:
             explainer = None
     else:
         bundle = None
+
+@app.on_event("startup")
+def startup_event():
+    load_artifacts()
+
+# Ensure artifacts are loaded eagerly
+load_artifacts()
 
 class SingleTransactionInput(BaseModel):
     Amount: float = Field(..., gt=0, description="Transaction amount in currency units")
