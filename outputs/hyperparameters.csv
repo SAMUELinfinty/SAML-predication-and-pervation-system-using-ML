@@ -1,0 +1,6 @@
+model,hyperparameters,val_pr_auc
+Logistic Regression (Baseline),"penalty=l2, class_weight=balanced, max_iter=500",0.0313
+LightGBM (M1),"num_leaves=31, max_depth=7, lr=0.05, scale_pos_weight=50.0, n_est=3",0.8883
+Random Forest (M2),"n_estimators=100, max_depth=12, class_weight=balanced_subsample, neg_sample=1:10",0.8031
+Isolation Forest (M3),"n_estimators=100, contamination=0.01, max_samples=100000",0.0051
+Ensemble (M4),"weights={'LGB': 0.8, 'RF': 0.15, 'IF': 0.025, 'LR': 0.025}, isotonic_calibrated",0.6070

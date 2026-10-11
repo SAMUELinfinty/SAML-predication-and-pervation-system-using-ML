@@ -1,0 +1,5 @@
+tier,transaction_count,percentage_of_txns,actual_positives,precision,expected_loss_usd,actual_illicit_amount_usd
+Critical,1205,0.085,598,0.4963,33419415.5,38205624.58
+High,1081,0.077,143,0.1323,5801996.94,1971130.27
+Medium,12777,0.904,842,0.0659,4691275.48,5525952.8
+Low,1397761,98.934,100,0.0001,864461.5,192128.73

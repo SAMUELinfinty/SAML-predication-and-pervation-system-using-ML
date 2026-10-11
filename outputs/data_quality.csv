@@ -1,0 +1,14 @@
+column,dtype,null_count,null_percentage,distinct_values
+Time,String,0,0.0,86400
+Date,String,0,0.0,321
+Sender_account,Int64,0,0.0,292715
+Receiver_account,Int64,0,0.0,652266
+Amount,Float64,0,0.0,2314277
+Payment_currency,String,0,0.0,13
+Received_currency,String,0,0.0,13
+Sender_bank_location,String,0,0.0,18
+Receiver_bank_location,String,0,0.0,18
+Payment_type,String,0,0.0,7
+Is_laundering,Int64,0,0.0,2
+Laundering_type,String,0,0.0,28
+__DATASET_DUPLICATES__,int,0,0.0,9504852

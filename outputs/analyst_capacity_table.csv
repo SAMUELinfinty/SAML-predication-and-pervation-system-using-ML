@@ -1,0 +1,5 @@
+budget_pct,review_capacity,caught_laundering_cases,recall,caught_illicit_amount_usd,pct_illicit_amount_caught,investigation_cost_usd,net_financial_savings_usd
+0.1%,1412,349,0.2074,38087529.5,82.99,70600.0,38016929.5
+0.5%,7064,1153,0.6851,44620269.92,97.22,353200.0,44267069.92
+1.0%,14128,1412,0.839,45602047.64,99.36,706400.0,44895647.64
+2.0%,28256,1605,0.9537,45854106.68,99.91,1412800.0,44441306.68

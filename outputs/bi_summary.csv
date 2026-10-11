@@ -1,0 +1,2 @@
+cost_optimal_threshold,f1_threshold,test_total_transactions,test_positives,total_illicit_amount_usd,cost_no_model_usd,cost_random_review_usd,cost_ensemble_usd,cost_saved_usd,pct_cost_saved,caught_illicit_amount_usd,unrecovered_fn_amount_usd,total_reviews_conducted,review_costs_usd,top_1pct_caught_amount_usd,top_1pct_caught_pct
+0.01,0.3906,1412824,1683,45894836.39,45894836.39,46526229.62,943678.73,44951157.66,97.94,45702707.66,192128.73,15031,751550.0,45602047.64,99.36

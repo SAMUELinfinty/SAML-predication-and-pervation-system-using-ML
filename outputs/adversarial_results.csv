@@ -1,0 +1,5 @@
+metric,value
+Clean Positive Recall (Pre-Attack),0.4219
+Adversarial Attack Recall (Evasion Drop),0.9548
+Adversarially Retrained Recall (Defense Recovery),0.9881
+Clean Test PR-AUC Post-Defense Retraining,0.9824
