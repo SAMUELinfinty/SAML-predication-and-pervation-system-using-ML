@@ -1,0 +1,26 @@
+# Large raw data
+SAML-D.csv
+data/raw/
+*.parquet
+*.parquet.*
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Logs and system artifacts
+outputs/logs/*.log
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
