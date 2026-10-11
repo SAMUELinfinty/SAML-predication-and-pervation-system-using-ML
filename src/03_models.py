@@ -200,7 +200,8 @@ def run_model_training(train_path="data/train.parquet", val_path="data/val.parqu
     hp_df.to_csv("outputs/hyperparameters.csv", index=False)
     logger.info("Saved hyperparameter table to models/hyperparameters.csv and outputs/hyperparameters.csv")
 
-    # Save complete bundle
+    # Save complete bundle with score reference quantiles for real-time inference
+    q_points = np.linspace(0, 1, 10001)
     bundle = {
         "models": {
             "lightgbm": lgb_model,
@@ -215,7 +216,13 @@ def run_model_training(train_path="data/train.parquet", val_path="data/val.parqu
         "encoders": meta["encoders"],
         "cat_cols": meta["cat_cols"],
         "high_risk_locs": meta["high_risk_locs"],
-        "feature_cols": feature_cols
+        "feature_cols": feature_cols,
+        "quantiles": {
+            "lgb": np.quantile(lgb_val_scores, q_points),
+            "rf": np.quantile(rf_val_scores, q_points),
+            "if": np.quantile(if_val_scores, q_points),
+            "lr": np.quantile(lr_val_scores, q_points)
+        }
     }
     joblib.dump(bundle, "models/ensemble.joblib")
     logger.info("Saved complete ensemble bundle to models/ensemble.joblib")
